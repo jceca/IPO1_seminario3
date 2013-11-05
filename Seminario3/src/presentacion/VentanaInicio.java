@@ -4,13 +4,19 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+
 import javax.swing.JButton;
+
 import java.awt.GridBagLayout;
+
 import javax.swing.JLabel;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+
 import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -19,6 +25,9 @@ import javax.swing.JSpinner;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.ButtonGroup;
+
+import dominio.Cliente;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -83,6 +92,7 @@ public class VentanaInicio {
 			pnlBotones.add(btnLimpiar);
 		}
 		{
+			btnGuardar.addActionListener(new BtnGuardarActionListener());
 			pnlBotones.add(btnGuardar);
 		}
 		{
@@ -199,6 +209,16 @@ public class VentanaInicio {
 			cbNivelEstudios.setSelectedItem("Sin estudios");
 			buttonGroup.clearSelection();
 			spinNumHijos.setValue(0);
+		}
+	}
+	private class BtnGuardarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			Cliente cliente = new Cliente (txtNombre.getText
+					(),txtApellidos.getText(),(String)
+					cbNivelEstudios.getSelectedItem(),rdbtnCasado.isSelected(),
+					(Integer)spinNumHijos.getValue());
+					Dialogo1 segundaVentana = new Dialogo1(cliente);
+					segundaVentana.setVisible(true);
 		}
 	}
 }
