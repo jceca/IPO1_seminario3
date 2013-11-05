@@ -3,10 +3,13 @@ package presentacion;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
 
 public class Seminario3 {
 
 	private JFrame frame;
+	private final JPanel panel = new JPanel();
 
 	/**
 	 * Launch the application.
@@ -38,6 +41,9 @@ public class Seminario3 {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		{
+			frame.getContentPane().add(panel, BorderLayout.CENTER);
+		}
 	}
 
 }
