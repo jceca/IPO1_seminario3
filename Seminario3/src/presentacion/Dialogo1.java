@@ -11,6 +11,8 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 
 import dominio.Cliente;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Dialogo1 extends JFrame {
 
@@ -38,6 +40,7 @@ public class Dialogo1 extends JFrame {
 				"Los datos se han guardado";
 				textArea.setText(contenido);
 		{
+			btnAceptar.addActionListener(new BtnAceptarActionListener());
 			contentPane.add(btnAceptar, BorderLayout.SOUTH);
 		}
 		{
@@ -48,4 +51,10 @@ public class Dialogo1 extends JFrame {
 		}
 	}
 
+	private class BtnAceptarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			dispose();
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		}
+	}
 }
